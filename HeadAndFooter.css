@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Header stufff */
+#Icon {
+	width: 100px;
+	height: 100px;
+	margin: 20px 20px 20px 0px;
+	padding: 0;
+	vertical-align:bottom;
+}
+
+#Name {
+	font-size: 30px;
+}
+
+#TagLine {
+	font-size: 15px;
+}
+
+div#NavBar ul {
+	background-color: black;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+div#NavBar li {
+	float: left;
+}
+
+div#NavBar li a {
+	display: block;
+	padding: 10px 15px;
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* da footer */
+#Footer {		
+	color: white;
+	padding: 10px 0px 10px 0px;
+	font-size: 13px;
+	background-color: black;
+}
+
+/* Background Color Extenders*/
+#NavBarBGExtender {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	background-color: black;
+	height: 38px; 
+	z-index: -1;
+}
+
+#FooterBGExtender{
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	background-color: black;
+	height: 36px; 
+	z-index: -1;
+}

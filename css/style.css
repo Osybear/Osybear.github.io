@@ -1,0 +1,231 @@
+body {
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global */
+
+.container {
+    width: 75%;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4{
+    font-weight: normal;
+}
+
+/* Header */
+header {
+    background-color: white;
+    overflow: hidden;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+header img {
+    float: left;
+    width: 100px;
+}
+
+header h1, h4 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    width: 50%;
+}
+
+header h1 {
+    padding-top: 14px;
+}
+
+/* Nav */
+nav{
+    background-color: black;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 25px 15px 0;
+    text-decoration: none;
+}
+
+/* Osybear Games Learn More Section */
+
+#learnmore {
+    background-color: red;
+    overflow: hidden;
+}
+
+#learnmore #content {
+    display: inline-block;
+    background-color: white;
+    margin: 200px 0 200px 0;
+    padding: 50px 150px 75px 75px;
+}
+
+#learnmore h1{
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 75px;
+    margin-bottom: 50px;
+}
+
+#learnmore a {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 14px;
+}
+
+/* About Me Section */
+
+#aboutme{
+    background-color: #E5E5E5;
+    overflow: hidden;
+}
+
+#aboutme #content2{
+    display: table;
+    background-color: white;
+    text-align: center;
+    margin: auto;
+    margin-top: 400px;
+    margin-bottom: 100px;
+}
+
+#aboutme h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#aboutme p{
+    font-size: 18px;
+    margin: auto 75px 75px 75px;
+}
+
+/* Footer */
+
+footer{
+    background-color: black;
+    color: white;
+}
+
+footer span{
+    display: inline-block;
+    margin: 7px 0;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1440px) {
+    /* start of desktop styles */
+    .container{
+        width: auto;
+    }
+
+    header{
+        background-color: blue;
+        padding-left: 10px;
+    }
+    
+    nav{
+        padding-left: 10px;
+    }
+    
+    footer{
+        padding-left: 10px;
+    }
+}
+
+//@media screen and (max-width: 991px) {
+    /* start of large tablet styles */
+    .container{
+        width: auto;
+    }
+    
+    header{
+        background-color: orange;
+        padding-left: 10px;
+    }
+    
+    nav{
+        padding-left: 10px;
+    }
+    
+    footer{
+        padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* start of medium tablet styles */ 
+    .container{
+        width: auto;
+    }
+    
+    header{
+        background-color: yellow;
+        padding-left: 10px;
+    }
+    
+    nav{
+        padding-left: 10px;
+    }
+    
+    footer{
+        padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    /* start of phone styles */
+    .container{
+        width: auto;
+    }
+    
+    header{
+        background-color: green;
+        padding-left: 10px;
+    }
+    
+    nav{
+        padding-left: 10px;
+    }
+    
+    #learnmore #content {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 10px;
+    }
+    
+    #aboutme p{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    footer{
+        padding-left: 10px;
+    }
+}

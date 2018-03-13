@@ -81,7 +81,7 @@ nav li a {
 #learnmore {
     //background-color: red;
     overflow: hidden;
-    background-image: url(./Images/blocks.webp);
+    background-image: url(../Images/blocks.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -113,7 +113,7 @@ nav li a {
 #aboutme{
     background-color: #E5E5E5;
     overflow: hidden;
-    background-image: url(./Images/dudes.jpeg);
+    background-image: url(../Images/dudes.jpeg);
     background-repeat: no-repeat;
     background-size: 1100px;
     background-position: center top; 

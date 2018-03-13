@@ -194,8 +194,11 @@ footer span{
     }
     
     nav{
+        padding-left: 10px;   
+    }
+    
+    footer{
         padding-left: 10px;
-        
     }
 }
 

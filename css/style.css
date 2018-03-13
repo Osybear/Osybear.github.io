@@ -79,8 +79,11 @@ nav li a {
 /* Learn More Section */
 
 #learnmore {
-    background-color: red;
+    //background-color: red;
     overflow: hidden;
+    background-image: url(/Images/blocks.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #learnmore #content {
@@ -110,6 +113,10 @@ nav li a {
 #aboutme{
     background-color: #E5E5E5;
     overflow: hidden;
+    background-image: url(/Images/dudes.jpeg);
+    background-repeat: no-repeat;
+    background-size: 1100px;
+    background-position: center top; 
 }
 
 #aboutme #content2{
@@ -221,4 +228,9 @@ footer span{
     header{
         background-color: red;
     }
+}
+
+/* remove for media queries header color*/
+header{
+    background-color: white;
 }

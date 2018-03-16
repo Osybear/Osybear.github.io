@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="Oswaldo Munoz-Bonifacio">
+        <title>Osybear Games | Games</title>
+        <link rel="stylesheet" href="./css/style.css">
+
+	</head>
+    
+    <!-- set the background image url to the img src when reach lowest media query-->
+    <script>
+        window.onload = function() {
+            var mq = window.matchMedia("(max-width: 768px)");
+
+            var handleMediaChange = function (mediaQueryList) {
+                if (mediaQueryList.matches) {
+                    //get each .game element and set the background image to the src of the img element in .game
+                    var games = document.getElementsByClassName("game");
+                    for(var i = 0; i < games.length; i++)
+                    {
+                       games.item(i).style.backgroundImage = "url('" + games.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
+                    }
+                }
+                else {
+                    //set the background image to none for all .game elements
+                    var games = document.getElementsByClassName("game");
+                    for(var i = 0; i < games.length; i++)
+                    {
+                       games.item(i).style.backgroundImage = "none";
+                    }
+                }
+            }
+
+            mq.addListener(handleMediaChange);
+            handleMediaChange(mq);
+        }
+
+    </script>
+    
+	<body>
+        
+        <header>
+            <div class="container">
+                <img src="./Images/logo.png" alt="Logo">                  
+                <h1>Osybear Games</h1>
+                <h4>Making Imagination Reality</h4>
+            </div>
+        </header> 
+        
+        <nav>
+            <div class="container">
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div> 
+        </nav>
+        
+        <section class="game">
+            <div class="container">
+                <img src="Images/dudes.jpeg" alt="thumbnail">
+                <div class="info">
+                    <h2>Game Name</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet molestie nibh et imperdiet. Mauris rutrum metus quis tristique imperdiet. Integer pretium arc </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="game">
+            <div class="container">
+                <img src="Images/blocks.webp" alt="thumbnail">
+                <div class="info">
+                    <h2>Game Name</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet molestie nibh et imperdiet. Mauris rutrum metus quis tristique imperdiet. Integer pretium arc </p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <span>&copy;2018 BY OSYBEAR GAMES.</span>
+            </div>
+        </footer>
+        
+	</body>
+</html>

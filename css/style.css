@@ -86,7 +86,7 @@ nav li a {
 
 #learnmore {
     overflow: hidden;
-    background-image: url(../Images/blocks.webp);
+    background-image: url(../Images/Home/blocks.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -118,7 +118,7 @@ nav li a {
 #aboutme{
     background-color: #E5E5E5;
     overflow: hidden;
-    background-image: url(../Images/dudes.jpeg);
+    background-image: url(../Images/Home/dudes.jpeg);
     background-repeat: no-repeat;
     background-size: 1100px;
     background-position: center top; 
@@ -247,6 +247,13 @@ footer span{
 }
 
 /* Media Queries */
+
+/* Less than or equal to 500px; (Footer Game) */
+@media (max-width: 500px) {
+    #gameContainer{
+        display: none;
+    }
+}
 
 /* Less than or equal to 768px; (smartphones) */
 @media (max-width: 768px) {

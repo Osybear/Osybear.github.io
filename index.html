@@ -8,11 +8,10 @@
         <link rel="stylesheet" href="./css/style.css">
 	</head>
 
-	<body>
-        
+	<body>    
         <header>
             <div class="container">
-                <img src="./Images/logo.png" alt="Logo">                  
+                <img src="Images/Home/logo.png" alt="Logo">                  
                 <h1>Osybear Games</h1>
                 <h4>Making Imagination Reality</h4>
             </div>
@@ -51,8 +50,43 @@
         <footer>
             <div class="container">
                 <span>&copy;2018 BY OSYBEAR GAMES.</span>
+                <div id="gameContainer">
+                </div>
             </div>
-        </footer>
-        
+            
+        </footer> 
 	</body>
+    
+    <script src="./scripts/footergame/phaser.min.js"></script>
+	<script src="./scripts/footergame/Boot.js"></script>
+	<script src="./scripts/footergame/Preloader.js"></script>
+	<script src="./scripts/footergame/MainMenu.js"></script>
+	<script src="./scripts/footergame/Game.js"></script>
+    
+    <script>
+        window.onload = function() {
+            var game = new Phaser.Game(500, 100, Phaser.AUTO, 'gameContainer');
+
+            game.state.add('Boot', BasicGame.Boot);
+            game.state.add('Preloader', BasicGame.Preloader);
+            game.state.add('MainMenu', BasicGame.MainMenu);
+            game.state.add('Game', BasicGame.Game);
+
+            game.state.start('Boot');
+        };
+    </script>
+    
+    <style>
+        footer{
+            position: relative;
+        }
+        
+        #gameContainer{
+            position:absolute; 
+            left:50%; 
+            transform:translate(-50%, -50%); 
+            bottom: -14px;
+        }
+    </style>
+
 </html>

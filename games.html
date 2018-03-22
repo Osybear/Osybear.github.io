@@ -5,7 +5,60 @@
         <meta name="viewport" content="width=device-width">
         <meta name="author" content="Oswaldo Munoz-Bonifacio">
         <title>Osybear Games | Games</title>
+        
         <link rel="stylesheet" href="./css/style.css">
+        
+        <style>
+            /* Game Container */
+            .game{
+                margin-top: 25px;
+                margin-bottom: 25px;
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .game .container{
+                height: 250px;
+                display: flex;
+                align-items: center;
+                overflow-y: hidden;
+            }
+
+            .game .info{
+                float: right;
+                width: 50%;
+                text-align: center;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .game img{
+                float: left;
+                width: 50%;
+            }
+
+            .game h2{
+                margin-top: 0;
+            }
+
+            .info p {
+                margin-bottom: 0;
+            }
+            
+            /* Embeded Game */
+            #gamecontainer {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                top: 0;
+                overflow: hidden;
+            }
+
+            #gamecontainer iframe{
+
+            }
+        </style>
 	</head>
     
 	<body> 
@@ -31,7 +84,7 @@
             <div class="container">
                 <img src="images/games/footergame.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="https://osybear.itch.io/footer-game">Footer Game</a></h2>
+                    <h2><a href="">Footer Game</a></h2>
                     <p>I wanted to make a simple game for my webiste that is located at the bottom of the home page above the footer. Only when the browser is 500px or more in width. Not viewable in some mobile.</p>
                 </div>
             </div>
@@ -42,19 +95,24 @@
                 <span>&copy;2018 BY OSYBEAR GAMES.</span>
             </div>
         </footer>
+        
+        <div id="gamecontainer">
+            <iframe src="" width="" height="" frameborder="0">
+            </iframe>
+        </div>
 	</body>
     
-    <!-- set the background image url to the img src when reach lowest media query-->
+    <!-- set the background image url to the img src when reach lowest media query -->
     <script>
             var mq = window.matchMedia("(max-width: 768px)");
 
             var handleMediaChange = function (mediaQueryList) {
                 if (mediaQueryList.matches) {
                     //get each .game element and set the background image to the src of the img element in .game
-                    var games = document.getElementsByClassName("game");
-                    for(var i = 0; i < games.length; i++)
+                    var arraygame = document.getElementsByClassName("game");
+                    for(var i = 0; i < arraygame.length; i++)
                     {
-                       games.item(i).style.backgroundImage = "url('" + games.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
+                       arraygame.item(i).style.backgroundImage = "url('" + arraygame.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
                     }
                 }
                 else {
@@ -69,5 +127,27 @@
 
             mq.addListener(handleMediaChange);
             handleMediaChange(mq);
+    </script>
+    
+    <!-- Handle the Embede game here -->
+    <script>
+        //set display none at start
+        var game = document.getElementById('gamecontainer')
+        game.style.display = "none";
+        
+        //get array of elements of the info class
+        var arrayinfo = document.getElementsByClassName("info");
+        for(var i = 0; i < arrayinfo.length; i++)
+        {
+           var anchor = arrayinfo.item(i).getElementsByTagName('a');
+           //set onclick same for all anchors
+        }
+        
+        function anchorevent(gamename){
+            //whatever game was clicked
+            //FIRST check if it can fit in the browser
+            //SECOND set the iframe src, width, heigth if fit == true
+        }
+        
     </script>
 </html>

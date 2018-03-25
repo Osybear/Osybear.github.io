@@ -94,13 +94,6 @@ footer span{
 
 /* Media Queries */
 
-/* Less than or equal to 500px; (Footer Game) */
-@media (max-width: 500px) {
-    #gameContainer{
-        display: none;
-    }
-}
-
 /* Less than or equal to 768px; (smartphones) */
 @media (max-width: 768px) {
     .container{
@@ -134,10 +127,6 @@ footer span{
     #aboutme p{
         margin-left: 15px;
         margin-right: 15px;
-    }
-
-    .game img{
-        display: none;
     }
     
     .game .info{

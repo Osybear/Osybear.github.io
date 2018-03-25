@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width">
         <meta name="author" content="Oswaldo Munoz-Bonifacio">
         <title>Osybear Games | Games</title>
-        
         <link rel="stylesheet" href="./css/style.css">
         
         <style>
@@ -47,16 +46,24 @@
             
             /* Embeded Game */
             #gamecontainer {
-                position: absolute;
+                background-color: rgba(0,0,0,0.5);
+                position:fixed;
+                padding:0;
+                margin:0;
+                top:0;
+                left:0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0,0,0,0.5);
-                top: 0;
-                overflow: hidden;
+                cursor: pointer;
             }
 
             #gamecontainer iframe{
-
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
             }
         </style>
 	</head>
@@ -85,7 +92,7 @@
                 <img src="images/games/footergame.png" alt="thumbnail">
                 <div class="info">
                     <h2><a href="">Footer Game</a></h2>
-                    <p>I wanted to make a simple game for my webiste that is located at the bottom of the home page above the footer. Only when the browser is 500px or more in width. Not viewable in some mobile.</p>
+                    <p>This game was made with the javascript library Phaser.js. It is a little dude that follows the cursor and can collect coins to increase the score counter. Works only in landscape mode if on mobile.</p>
                 </div>
             </div>
         </section>
@@ -97,57 +104,77 @@
         </footer>
         
         <div id="gamecontainer">
-            <iframe src="" width="" height="" frameborder="0">
+            <iframe>
             </iframe>
         </div>
 	</body>
     
-    <!-- set the background image url to the img src when reach lowest media query -->
+    <!-- Handle media change for game images -->
     <script>
-            var mq = window.matchMedia("(max-width: 768px)");
+        var mq = window.matchMedia("(max-width: 768px)");
+        var arraygame = document.getElementsByClassName("game");
 
-            var handleMediaChange = function (mediaQueryList) {
-                if (mediaQueryList.matches) {
-                    //get each .game element and set the background image to the src of the img element in .game
-                    var arraygame = document.getElementsByClassName("game");
-                    for(var i = 0; i < arraygame.length; i++)
-                    {
-                       arraygame.item(i).style.backgroundImage = "url('" + arraygame.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
-                    }
-                }
-                else {
-                    //set the background image to none for all .game elements
-                    var games = document.getElementsByClassName("game");
-                    for(var i = 0; i < games.length; i++)
-                    {
-                       games.item(i).style.backgroundImage = "none";
-                    }
+        var HandleMediaChange = function (mediaQueryList) {
+            if (mediaQueryList.matches) {
+                //set the background image src to the src of the img element in the section
+                //then set the image element to display none
+                for(var i = 0; i < arraygame.length; i++)
+                {
+                    arraygame.item(i).style.backgroundImage = "url('" + arraygame.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
+                    arraygame.item(i).getElementsByTagName('img')[0].style.display = "none";
                 }
             }
+            else {
+                //the opposite
+                for(var i = 0; i < arraygame.length; i++)
+                {
+                    arraygame.item(i).style.backgroundImage = "none";
+                    arraygame.item(i).getElementsByTagName('img')[0].style.display = "block";
+                }
+            }
+        }
 
-            mq.addListener(handleMediaChange);
-            handleMediaChange(mq);
+        mq.addListener(HandleMediaChange);
+        HandleMediaChange(mq);
     </script>
     
-    <!-- Handle the Embede game here -->
+    <!-- Handle the embeded game here -->
     <script>
         //set display none at start
-        var game = document.getElementById('gamecontainer')
-        game.style.display = "none";
+        var gamecontainer = document.getElementById('gamecontainer')
+        var iframe = gamecontainer.getElementsByTagName('iframe')[0];
+               
+        gamecontainer.style.display = "none"; 
+        gamecontainer.onclick = function(){gamecontainer.style.display = "none"; iframe.src = null; iframe.width = 0; iframe.height = 0};
         
-        //get array of elements of the info class
         var arrayinfo = document.getElementsByClassName("info");
         for(var i = 0; i < arrayinfo.length; i++)
         {
-           var anchor = arrayinfo.item(i).getElementsByTagName('a');
-           //set onclick same for all anchors
+            var anchor = arrayinfo.item(i).getElementsByTagName('a')[0];
+            anchor.onclick = function(){AnchorClick(anchor.innerHTML);return false};
         }
         
-        function anchorevent(gamename){
-            //whatever game was clicked
-            //FIRST check if it can fit in the browser
-            //SECOND set the iframe src, width, heigth if fit == true
+        function AnchorClick(gamename){
+            if(gamename = "Footer Game"){       
+                if(getWidth() >= 500){
+                    iframe.src = "http://www.osybear.com/footergame/";
+                    iframe.width = 500;
+                    iframe.height = 100;
+                    gamecontainer.style.display = "block";
+                }else{
+                    console.log("Not Supported Text")
+                }
+            }
         }
         
+        function getWidth() {
+          return Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.documentElement.clientWidth
+          );
+        }
     </script>
 </html>

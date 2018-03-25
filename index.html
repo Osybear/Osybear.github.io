@@ -4,10 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <meta name="author" content="Oswaldo Munoz-Bonifacio">
-        <link rel="stylesheet" href="./css/style.css">
-        
-        <title>Osybear Games | Home</title>
-         
+        <link rel="stylesheet" href="./css/style.css">   
+        <title>Osybear Games | Home</title> 
         <style>
             /* Learn More Section */
             #learnmore {
@@ -126,29 +124,8 @@
         <footer>
             <div class="container">
                 <span>&copy;2018 BY OSYBEAR GAMES.</span>
-                <div id="footergame">
-                </div>
             </div>
-            
         </footer> 
 	</body>
-    
-    <script src="./scripts/footergame/phaser.min.js"></script>
-	<script src="./scripts/footergame/Boot.js"></script>
-	<script src="./scripts/footergame/Preloader.js"></script>
-	<script src="./scripts/footergame/MainMenu.js"></script>
-	<script src="./scripts/footergame/Game.js"></script>
-    <script>
-        window.onload = function() {
-            var game = new Phaser.Game(500, 100, Phaser.AUTO, 'footergame');
-
-            game.state.add('Boot', BasicGame.Boot);
-            game.state.add('Preloader', BasicGame.Preloader);
-            game.state.add('MainMenu', BasicGame.MainMenu);
-            game.state.add('Game', BasicGame.Game);
-
-            game.state.start('Boot');
-        };
-    </script>
 </html>
 

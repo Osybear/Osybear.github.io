@@ -65,6 +65,21 @@
                 right: 0;
                 margin: auto;
             }
+            
+            #gamecontainer div{
+                position: absolute;
+                height: 100px;
+                width: auto;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                background-color: white;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 100px; 
+            }
         </style>
 	</head>
     
@@ -106,6 +121,7 @@
         <div id="gamecontainer">
             <iframe>
             </iframe>
+            <div>Media Not Supported</div>
         </div>
 	</body>
     
@@ -138,12 +154,13 @@
         HandleMediaChange(mq);
     </script>
     
-    <!-- Handle the embeded game here -->
+    <!-- Handle the embeded game -->
     <script>
         //set display none at start
         var gamecontainer = document.getElementById('gamecontainer')
         var iframe = gamecontainer.getElementsByTagName('iframe')[0];
-               
+        var notsupported = gamecontainer.getElementsByTagName('div')[0];
+        
         gamecontainer.style.display = "none"; 
         gamecontainer.onclick = function(){gamecontainer.style.display = "none"; iframe.src = null; iframe.width = 0; iframe.height = 0};
         
@@ -161,12 +178,16 @@
                     iframe.width = 500;
                     iframe.height = 100;
                     gamecontainer.style.display = "block";
+                    notsupported.style.display = "none";
+                    iframe.style.display = "block";
                 }else{
-                    console.log("Not Supported Text")
+                    gamecontainer.style.display = "block";
+                    iframe.style.display = "none";
+                    notsupported.style.display = "block";
                 }
             }
         }
-        
+            
         function getWidth() {
           return Math.max(
             document.body.scrollWidth,
@@ -176,5 +197,6 @@
             document.documentElement.clientWidth
           );
         }
+
     </script>
 </html>

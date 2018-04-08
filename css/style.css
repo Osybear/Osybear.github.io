@@ -14,7 +14,6 @@ body {
 /* Global */
 .container {
     margin: auto;
-    overflow-x: hidden;
 }
 
 ul {
@@ -62,6 +61,24 @@ nav {
     background-color: black;
 }
 
+nav .container{
+    position: relative;
+}
+
+nav #twitter{
+    width: 52px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+nav #patreon{
+    width: 52px;
+    position: absolute;
+    right: 52px;
+    top: 0;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -80,6 +97,7 @@ nav li a {
     padding: 15px 25px 15px 0;
     text-decoration: none;
 }
+
 
 /* Footer */
 footer{

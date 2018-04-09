@@ -118,7 +118,7 @@
             <div class="container">
                 <img src="images/gamethumbnails/footergame.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="">Footer Game</a> <a href="https://github.com/Osybear/Project-Footergame"><img src="images/download.ico"></a></h2>
+                    <h2><a href="" onclick="FooterGame(); return false;">Footer Game</a> <a href="https://github.com/Osybear/Project-Footergame"><img src="images/download.ico"></a></h2>
                     <p>This game was made with the javascript library Phaser.js. It is a little dude that follows the cursor and can collect coins to increase the score counter.</p>
                 </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="container">
                 <img src="images/gamethumbnails/demolition.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="">Demolition</a> <a href="https://github.com/Osybear/Project-Demolition"><img src="images/download.ico"></a></h2>
+                    <h2><a href="" onclick="Demolition(); return false;">Demolition</a> <a href="https://github.com/Osybear/Project-Demolition"><img src="images/download.ico"></a></h2>
                     <p>In this game you place explosives on a tower to blow it up. Use WASD to move the camera and Scroll Wheel to zoom in and out.</p>
                 </div>
             </div>
@@ -154,8 +154,6 @@
 
         var HandleMediaChange = function (mediaQueryList) {
             if (mediaQueryList.matches) {
-                //set the background image src to the src of the img element in the section
-                //then set the image element to display none
                 for(var i = 0; i < arraygame.length; i++)
                 {
                     arraygame.item(i).style.backgroundImage = "url('" + arraygame.item(i).getElementsByTagName('img')[0].getAttribute("src")+ "')";
@@ -163,7 +161,6 @@
                 }
             }
             else {
-                //the opposite
                 for(var i = 0; i < arraygame.length; i++)
                 {
                     arraygame.item(i).style.backgroundImage = "none";
@@ -179,53 +176,40 @@
     <!-- Handle the embeded game -->
     <script>
         //set display none at start
+        
         var gamecontainer = document.getElementById('gamecontainer')
         var iframe = gamecontainer.getElementsByTagName('iframe')[0];
         var notsupported = gamecontainer.getElementsByTagName('div')[0];
         
+        notsupported.style.display = "none";
         gamecontainer.style.display = "none"; 
-        gamecontainer.onclick = function(){gamecontainer.style.display = "none"; iframe.src = null; iframe.width = 0; iframe.height = 0};
+        gamecontainer.onclick = function(){gamecontainer.style.display = "none"; notsupported.style.display = "none"; iframe.src = null; iframe.width = 0; iframe.height = 0; };
         
-        var arrayinfo = document.getElementsByClassName("info");
-        for(var i = 0; i < arrayinfo.length; i++)
-        {
-            var anchor = arrayinfo.item(i).getElementsByTagName('a')[0];
-            anchor.onclick = function(){AnchorClick(anchor.innerHTML);return false};
-        }
-        
-        function AnchorClick(gamename){
-            if(gamename = "Footer Game"){       
-                if(getWidth() >= 500){
-                    iframe.src = "http://www.osybear.com/Project-Footergame/";
-                    iframe.width = 500;
-                    iframe.height = 100;
-                    gamecontainer.style.display = "block";
-                    notsupported.style.display = "none";
-                    iframe.style.display = "block";
-                }else{
-                    gamecontainer.style.display = "block";
-                    iframe.style.display = "none";
-                    notsupported.style.display = "block";
-                }
-            }
-            
-            if(gamename = "Demolition"){       
-                if(getWidth() >= 960){
-                    iframe.src = "http://www.osybear.com/Game-Demolition/";
-                    iframe.width = 960;
-                    iframe.height = 600;
-                    gamecontainer.style.display = "block";
-                    notsupported.style.display = "none";
-                    iframe.style.display = "block";
-                }else{
-                    gamecontainer.style.display = "block";
-                    iframe.style.display = "none";
-                    notsupported.style.display = "block";
-                }
+        function FooterGame(){
+            if(GetWidth() >= 500){
+                iframe.width = 500;
+                iframe.height = 100;
+                iframe.src = "http://www.osybear.com/Project-Footergame/"
+                gamecontainer.style.display = "block";
+            }else{
+                notsupported.style.display = "block";
+                gamecontainer.style.display = "block";
             }
         }
-            
-        function getWidth() {
+        
+        function Demolition(){
+            if(GetWidth() >= 960){
+                iframe.width = 960;
+                iframe.height = 600;
+                iframe.src = "http://www.osybear.com/Game-Demolition/"
+                gamecontainer.style.display = "block";
+            }else{
+                notsupported.style.display = "block";
+                gamecontainer.style.display = "block";
+            }
+        }
+        
+        function GetWidth() {
           return Math.max(
             document.body.scrollWidth,
             document.documentElement.scrollWidth,
@@ -236,4 +220,5 @@
         }
 
     </script>
+    
 </html>

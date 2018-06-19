@@ -66,20 +66,6 @@ nav .container{
     position: relative;
 }
 
-nav #twitter{
-    width: 52px;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-nav #patreon{
-    width: 52px;
-    position: absolute;
-    right: 52px;
-    top: 0;
-}
-
 nav ul {
     list-style-type: none;
     margin: 0;

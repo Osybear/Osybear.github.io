@@ -51,15 +51,6 @@
                 position: relative;
             }
             
-            .game h2 img{
-                position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                left: 250px;
-                right: 0;
-                width: 33px;
-                cursor: pointer;
-            }
             .info p {
                 margin-bottom: 0;
             }
@@ -118,8 +109,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="games.html">Games</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://twitter.com/OsybearGames"><img id="twitter" src="images/twitter.png"></a></li>
-                    <li><a href="https://www.patreon.com/osybear"><img id="patreon" src="images/patreon.png"></a></li>
+                    <li><a href="https://twitter.com/OsybearGames" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.patreon.com/osybear" target="_blank">Patreon</a></li>
                 </ul>
             </div> 
         </nav>
@@ -128,8 +119,8 @@
             <div class="container">
                 <img src="images/gamethumbnails/SunnyLand-SpikeFall.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="" onclick="SunnyLandSpikeFall(); return false;">Sunny Land<br>Spike Fall</a> <a href="http://github.com/Osybear/Project-SunnyLand-SpikeFall" target="_blank"><img src="images/github.svg"></a></h2>
-                    <p>I took Ansimuz <a href="https://assetstore.unity.com/packages/2d/characters/sunny-land-103349">2D Platformer Asset Kit</a> and used it to make Spike Fall. Thanks to <a href="https://www.tinysound.ca/">Shan Richardson</a> for making the audio.</p>
+                    <h2><a href="" onclick="SunnyLandSpikeFall(); return false;">Sunny Land<br>Spike Fall</a></h2>
+                    <p>I took Ansimuz <a href="https://assetstore.unity.com/packages/2d/characters/sunny-land-103349">2D Platformer Asset Kit</a> and used it to make Spike Fall. Thanks to <a href="https://www.tinysound.ca/" target="_blank">Shan Richardson</a> for making the audio.<a href="https://github.com/Osybear/Project-SunnyLand-SpikeFall" target="_blank"><br>Project files on Github</a></p>
                 </div>
             </div>
         </section>
@@ -138,8 +129,8 @@
             <div class="container">
                 <img src="images/gamethumbnails/TypingJumper.jpg" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="" onclick="TypingJumper(); return false;">Typing Jumper</a> <a href="https://github.com/Osybear/Project-TypingJumper" target="_blank"><img src="images/github.svg"></a></h2>
-                    <p>This game was made for Ludum Dare 41, Event Compo. The theme "Combine 2 Incompatible Genres". I chose "Typing tutor + Platformer" which became Typing Jumper. Where you type actions to get to the level checkpoint.</p>
+                    <h2><a href="" onclick="TypingJumper(); return false;">Typing Jumper</a></h2>
+                    <p>This game was made for Ludum Dare 41, Event Compo. The theme "Combine 2 Incompatible Genres". I chose "Typing tutor + Platformer" which became Typing Jumper. Where you type actions to get to the level checkpoint.<a href="https://github.com/Osybear/Project-TypingJumper" target="_blank"><br>Project files on Github</a></p>
                 </div>
             </div>
         </section>
@@ -148,8 +139,8 @@
             <div class="container">
                 <img src="images/gamethumbnails/demolition.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="" onclick="Demolition(); return false;">Demolition</a> <a href="https://github.com/Osybear/Project-Demolition" target="_blank"><img src="images/github.svg"></a></h2>
-                    <p>In this game you can place explosives on a tower of cubes and blow it up off the platform.</p>
+                    <h2><a href="" onclick="Demolition(); return false;">Demolition</a></h2>
+                    <p>In this game you can place explosives on a tower of cubes and blow it up off the platform.<a href="https://github.com/Osybear/Project-Demolition" target="_blank"><br>Project files on Github</a></p>
                 </div>
             </div>
         </section>
@@ -158,8 +149,8 @@
             <div class="container">
                 <img src="images/gamethumbnails/footergame.png" alt="thumbnail">
                 <div class="info">
-                    <h2><a href="" onclick="FooterGame(); return false;">Footer Game</a> <a href="https://github.com/Osybear/Project-Footer" target="_blank"><img src="images/github.svg"></a></h2>
-                    <p>This game was made with the javascript library Phaser.js. It is a little dude that follows the cursor and can collect coins to increase the score counter.</p>
+                    <h2><a href="" onclick="FooterGame(); return false;">Footer Game</a></h2>
+                    <p>This game was made with the javascript library Phaser.js. It is a little dude that follows the cursor and can collect coins to increase the score counter.<a href="https://github.com/Osybear/Project-Footer" target="_blank"><br>Project files on Github</a></p>
                 </div>
             </div>
         </section>
@@ -210,6 +201,7 @@
         var gamecontainer = document.getElementById('gamecontainer')
         var iframe = gamecontainer.getElementsByTagName('iframe')[0];
         var notsupported = gamecontainer.getElementsByTagName('div')[0];
+        iframe.width = 0; iframe.height = 0; 
         
         notsupported.style.display = "none";
         gamecontainer.style.display = "none"; 
@@ -274,6 +266,7 @@
         }
 
     </script>
+    
     <!-- Handle locatio.hash -->
     <script>
         var gamehash = location.hash;

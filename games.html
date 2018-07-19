@@ -116,6 +116,16 @@
         
         <section class="game">
             <div class="container">
+                <img src="images/gamethumbnails/ZombieMode.png" alt="thumbnail">
+                <div class="info">
+                    <h2><a href="" onclick="ZombieMode(); return false;">Zombie Mode</a></h2>
+                    <p>An incomplete prototype with inspiration of Call Of Duty's Zombie Mode.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="game">
+            <div class="container">
                 <img src="images/gamethumbnails/SunnyLand-HideAndSeek.png" alt="thumbnail">
                 <div class="info">
                     <h2><a href="" onclick="SunnyLandHideAndSeek(); return false;">Sunny Land - Hide and Seek</a></h2>
@@ -142,11 +152,11 @@
                     <p>This game was made for Ludum Dare 41, Event Compo. The theme "Combine 2 Incompatible Genres". I chose "Typing tutor + Platformer" which became Typing Jumper. Where you type actions to get to the level checkpoint.<br>Project files on <a href="https://github.com/Osybear/Project-TypingJumper" target="_blank">Github</a></p>
                 </div>
             </div>
-        </section>
+        </section>s
         
         <section class="game">
             <div class="container">
-                <img src="images/gamethumbnails/demolition.png" alt="thumbnail">
+                <img src="images/gamethumbnails/Demolition.png" alt="thumbnail">
                 <div class="info">
                     <h2><a href="" onclick="Demolition(); return false;">Demolition</a></h2>
                     <p>In this game you can place explosives on a tower of cubes and blow it up off the platform.<br>Project files on <a href="https://github.com/Osybear/Project-Demolition" target="_blank">Github</a></p>
@@ -275,6 +285,19 @@
                 gamecontainer.style.display = "block";
             }
         }
+        
+        function ZombieMode(){
+            if(GetWidth() >= 960){
+                iframe.width = 960;
+                iframe.height = 600;
+                iframe.src = "http://www.osybear.com/Game-ZombieMode/"
+                gamecontainer.style.display = "block";
+            }else{
+                notsupported.style.display = "block";
+                gamecontainer.style.display = "block";
+            }
+        }
+        
         function GetWidth() {
           return Math.max(
             document.body.scrollWidth,
@@ -306,6 +329,9 @@
                 break;
             case "#sunnyland-hideandseek":
                 SunnyLandHideAndSeek();
+                break;
+            case "#zombiemode"
+                ZombieMode();
                 break;
         }
     </script>

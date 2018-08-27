@@ -116,11 +116,20 @@
         
         <section class="game">
             <div class="container">
+                <img src="images/gamethumbnails/LootHeaven.PNG" alt="thumbnail">
+                <div class="info">
+                    <h2><a href="" onclick="LootHeaven(); return false;">Loot Heaven</a></h2>
+                    <p>A prototype of a looting game using <a href="https://kenney.nl/assets/generic-items" target="_blank">Generic Items</a> and <a href="https://kenney.nl/assets/furniture-kit" target="_blank">Furniture Kit</a> by Kenney<br>Project files on<a href="https://github.com/Osybear/Project-LootHeaven" target="_blank">Github</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="game">
+            <div class="container">
                 <img src="images/gamethumbnails/naturewalk.png" alt="thumbnail">
                 <div class="info">
                     <h2><a href="" onclick="NatureWalk(); return false;">Nature Walk</a></h2>
                     <p>A concept of a role playing game I came up with when I saw Kenney's <a href="https://kenney.nl/assets/nature-kit" target="_blank">Nature Kit</a><br>Project files on <a href="https://github.com/Osybear/Project-NatureWalk" target="_blank">Github</a></p>
-                    </p></p>
                 </div>
             </div>
         </section>
@@ -131,7 +140,6 @@
                 <div class="info">
                     <h2><a href="" onclick="ZombieMode(); return false;">Zombie Mode</a></h2>
                     <p>An incomplete prototype with inspiration of Call Of Duty's Zombie Mode.<br>Project files on <a href="https://github.com/Osybear/Project-ZombieMode" target="_blank">Github</a></p>
-                    </p>
                 </div>
             </div>
         </section>
@@ -321,6 +329,19 @@
                 gamecontainer.style.display = "block";
             }
         }
+        
+        function LootHeaven(){
+            if(GetWidth() >= 960){
+                iframe.width = 960;
+                iframe.height = 600;
+                iframe.src = "http://www.osybear.com/Game-LootHeaven/"
+                gamecontainer.style.display = "block";
+            }else{
+                notsupported.style.display = "block";
+                gamecontainer.style.display = "block";
+            }
+        }
+        
         function GetWidth() {
           return Math.max(
             document.body.scrollWidth,
@@ -357,7 +378,10 @@
                 ZombieMode();
                 break
             case "#naturewalk":
-                NatureWalk();s
+                NatureWalk();
+                break;
+            case "#lootheaven":
+                LootHeaven();
                 break;
         }
     </script>

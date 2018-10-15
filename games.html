@@ -116,10 +116,20 @@
         
         <section class="game">
             <div class="container">
+                <img src="images/gamethumbnails/blockymine.PNG" alt="thumbnail">
+                <div class="info">
+                    <h2><a href="" onclick="BlockyMine(); return false;">Blocky Mine</a></h2>
+                    <p>A mining game that was inspired from roblox's <a href="https://www.roblox.com/games/151670365/The-Quarry">The Quarry.</a> WASD to move, HOLD left mouse button to mine, and I key for shop.<br>Project files on <a href="https://github.com/Osybear/Project-BlockyMine" target="_blank">Github</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="game">
+            <div class="container">
                 <img src="images/gamethumbnails/LootHeaven.PNG" alt="thumbnail">
                 <div class="info">
                     <h2><a href="" onclick="LootHeaven(); return false;">Loot Heaven</a></h2>
-                    <p>A prototype of a looting game using <a href="https://kenney.nl/assets/generic-items" target="_blank">Generic Items</a> and <a href="https://kenney.nl/assets/furniture-kit" target="_blank">Furniture Kit</a> by Kenney<br>Project files on<a href="https://github.com/Osybear/Project-LootHeaven" target="_blank">Github</a></p>
+                    <p>A prototype of a looting game using <a href="https://kenney.nl/assets/generic-items" target="_blank">Generic Items</a> and <a href="https://kenney.nl/assets/furniture-kit" target="_blank">Furniture Kit</a> by Kenney<br>Project files on <a href="https://github.com/Osybear/Project-LootHeaven" target="_blank">Github</a></p>
                 </div>
             </div>
         </section>
@@ -342,6 +352,18 @@
             }
         }
         
+        function BlockyMine(){
+            if(GetWidth() >= 960){
+                iframe.width = 960;
+                iframe.height = 600;
+                iframe.src = "http://www.osybear.com/Game-BlockyMine/"
+                gamecontainer.style.display = "block";
+            }else{
+                notsupported.style.display = "block";
+                gamecontainer.style.display = "block";
+            }
+        }
+        
         function GetWidth() {
           return Math.max(
             document.body.scrollWidth,
@@ -382,6 +404,9 @@
                 break;
             case "#lootheaven":
                 LootHeaven();
+                break;
+            case "#blockymine":
+                BlockyMine();
                 break;
         }
     </script>

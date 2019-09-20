@@ -1,0 +1,13 @@
+{
+"companyName": "Osybear Games",
+"productName": "Sunny Landing - Spike Fall",
+"dataUrl": "Build15WEBGL.data.unityweb",
+"asmCodeUrl": "Build15WEBGL.asm.code.unityweb",
+"asmMemoryUrl": "Build15WEBGL.asm.memory.unityweb",
+"asmFrameworkUrl": "Build15WEBGL.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

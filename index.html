@@ -28,7 +28,7 @@
                 text-align: center;
                 font-size: 75px;
                 letter-spacing: 15px;
-                margin: 10px 0px;
+                margin-top: 10px;
             }
             
             #flex-grid {
@@ -203,7 +203,7 @@
                 </div>
             </div>
             
-            <div class="grid-item" style="background-image: url(thumbnails/footergame.png)" onclick="FooterGame()">
+            <div class="grid-item" style="background-image: url(thumbnails/footergame.png)" onclick="setFooterGame()">
                 <div class="info-container">
                     <p class="game-title">Footer Game</p>
                     <p class="game-desc">Collect coins by moving around Ju using your cursor.</p>
@@ -213,40 +213,31 @@
         </section>  
         
         <section id="game-container" onclick="minimize()">
-            <div id="not-supported">Media Not Supported</div>
             <iframe id="game" scrolling="no" frameborder="0"></iframe>
         </section>
     </body>
     <script>
         var gameContainer = document.getElementById("game-container");
         var iframe = document.getElementById("game");
-        var warning = document.getElementById("not-supported");
-        
-        function setIframe(gameName) { 
-            if(window.innerWidth >= 960 && window.innerHeight >= 600) {
+        var canFit = false;
+
+        function setIframe(gameName) {
+            if(canFit) {
                 gameContainer.style.display = "flex";
                 iframe.style.display = "block";
                 iframe.src = "gamebuilds/" + gameName + "/index.html"
                 iframe.width = 960;
                 iframe.height = 600;
-            }else {
-                gameContainer.style.display = "flex";
-                iframe.style.disable = "none";
-                warning.style.display = "block";
             }
         }
         
-        function FooterGame() {
-            if(window.innerWidth >= 500 && window.innerHeight >= 100) {
+        function setFooterGame() {
+            if(canFit) {
                 gameContainer.style.display = "flex";
                 iframe.style.display = "block";
                 iframe.src = "gamebuilds/FooterGame/index.html"
                 iframe.width = 500;
                 iframe.height = 100;
-            }else {
-                gameContainer.style.display = "flex";
-                iframe.style.disable = "none";
-                warning.style.display = "block";
             }
         }
         
@@ -254,7 +245,27 @@
             iframe.style.display = "none";
             iframe.src = "about:blank";
             gameContainer.style.display = "none";
-            warning.style.display = "none";
+        }
+        
+        window.onload = setElements
+        window.onresize = setElements;
+        
+        var ctp = document.getElementsByClassName("click-to-play");
+        
+        function setElements() {
+            if(window.innerWidth < 960) {
+                for (i = 0; i < ctp.length; i++) {
+                  ctp[i].textContent = null;
+                }
+                canFit = false;
+            }
+            
+            if(window.innerWidth >= 960) {
+                for (i = 0; i < ctp.length; i++) {
+                  ctp[i].textContent = "Click to Play";
+                }
+                canFit = true;
+            }
         }
     </script>
 </html>

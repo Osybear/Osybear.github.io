@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Osybear Game's</title>
         
         <style>
@@ -27,12 +28,14 @@
                 text-align: center;
                 font-size: 75px;
                 letter-spacing: 15px;
+                margin: 10px 0px;
             }
             
             #flex-grid {
                 display: flex;
                 justify-content: space-evenly;
-                flex-flow: row wrap;
+                flex-flow: wrap;
+                flex-direction:row;   
             }
             
             .grid-item {
@@ -40,7 +43,6 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 250px;
-                width: 32%;
                 margin-top: 10px;
             }
             
@@ -86,11 +88,49 @@
                 background-color: rgba(0,0,0,0.65);
             }
             
+            #game {
+                display: none;
+            }
+            
+            #not-supported {
+                display: none;
+                font-size: 20px;
+            }
+            
+            #twitter {
+                float: left;
+                display: inline-block;
+                width: 75px;
+                height: 75px;
+            }
+            
+            /* Extra small devices (phones, 600px and down) */
+            @media only screen and (max-width: 600px) {.grid-item {width: 99%;}}
+
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 600px) {.grid-item {width: 99%;}}
+
+            /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {.grid-item {width: 99%;}} 
+
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (min-width: 992px) {.grid-item {width: 49%;}} 
+            
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            @media only screen and (min-width: 1200px) {.grid-item {width: 32.33%}}
         </style>
     </head>
     <body>
         <header>MY GAMES</header>
         <section id="flex-grid">
+            <div class="grid-item" style="background-image: url(thumbnails/tibiaclone.png)"  onclick="setIframe('CrystalCrusher')">
+                <div class="info-container">
+                    <p class="game-title">Tibia Clone</p>
+                    <p class="game-desc">Walk around a small recreation of Cipsoft's Tibia.</p>
+                    <p class="click-to-play">Click to Play</p>
+                </div>
+            </div>
+            
             <div class="grid-item" style="background-image: url(thumbnails/crystalcrusher.PNG)"  onclick="setIframe('CrystalCrusher')">
                 <div class="info-container">
                     <p class="game-title">Crystal Crusher</p>
@@ -131,7 +171,7 @@
                 </div>
             </div>
             
-            <div class="grid-item" style="background-image: url(thumbnails/sunnyland-hidenseek.png); background-size: contain; background-color: #2FBDFF;" onclick="setIframe('HideAndSeek')">
+            <div class="grid-item" style="background-image: url(thumbnails/hidenseek.png); background-size: contain; background-color: #2FBDFF;" onclick="setIframe('HideAndSeek')">
                 <div class="info-container">
                     <p class="game-title">Hide And Seek</p>
                     <p class="game-desc">Hide from an eagle that is trying to eat you in nearby bushes.</p>
@@ -139,7 +179,7 @@
                 </div>
             </div>
             
-            <div class="grid-item" style="background-image: url(thumbnails/sunnyland-spikefall.png); background-size: contain; background-color: #2FBDFF;" onclick="setIframe('SpikeFall')">
+            <div class="grid-item" style="background-image: url(thumbnails/spikefall.png); background-size: contain; background-color: #2FBDFF;" onclick="setIframe('SpikeFall')">
                 <div class="info-container">
                     <p class="game-title">Spike Fall</p>
                     <p class="game-desc">Dodge the incoming spikes falling from above.</p>
@@ -163,7 +203,7 @@
                 </div>
             </div>
             
-            <div class="grid-item" style="background-image: url(thumbnails/footergame.png)" onclick="setIframe('FooterGame')">
+            <div class="grid-item" style="background-image: url(thumbnails/footergame.png)" onclick="FooterGame()">
                 <div class="info-container">
                     <p class="game-title">Footer Game</p>
                     <p class="game-desc">Collect coins by moving around Ju using your cursor.</p>
@@ -173,30 +213,48 @@
         </section>  
         
         <section id="game-container" onclick="minimize()">
+            <div id="not-supported">Media Not Supported</div>
             <iframe id="game" scrolling="no" frameborder="0"></iframe>
         </section>
     </body>
     <script>
         var gameContainer = document.getElementById("game-container");
         var iframe = document.getElementById("game");
+        var warning = document.getElementById("not-supported");
         
         function setIframe(gameName) { 
-            gameContainer.style.display = "flex";
-            iframe.src = "gamebuilds/" + gameName + "/index.html"
-            
-            if(gameName == "FooterGame") {
-                iframe.width = 500;
-                iframe.height = 100;
-            } else {
+            if(window.innerWidth >= 960 && window.innerHeight >= 600) {
+                gameContainer.style.display = "flex";
+                iframe.style.display = "block";
+                iframe.src = "gamebuilds/" + gameName + "/index.html"
                 iframe.width = 960;
                 iframe.height = 600;
+            }else {
+                gameContainer.style.display = "flex";
+                iframe.style.disable = "none";
+                warning.style.display = "block";
+            }
+        }
+        
+        function FooterGame() {
+            if(window.innerWidth >= 500 && window.innerHeight >= 100) {
+                gameContainer.style.display = "flex";
+                iframe.style.display = "block";
+                iframe.src = "gamebuilds/FooterGame/index.html"
+                iframe.width = 500;
+                iframe.height = 100;
+            }else {
+                gameContainer.style.display = "flex";
+                iframe.style.disable = "none";
+                warning.style.display = "block";
             }
         }
         
         function minimize() {
-            iframe.src = "";
+            iframe.style.display = "none";
+            iframe.src = "about:blank";
             gameContainer.style.display = "none";
-            gameContainer.style.display = "about:blank";
+            warning.style.display = "none";
         }
     </script>
 </html>
